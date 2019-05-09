@@ -234,3 +234,5 @@ function countBs1(string, character) {
 }
 
 console.log(countBs1("hellohelloHELLOHEllOHElLO", "l" ));
+
+

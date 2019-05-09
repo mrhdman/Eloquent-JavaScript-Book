@@ -39,7 +39,6 @@ function fizzBuzz() {
     }
 }
 
-function chessBoard() {
     /*
         Write a program that creates a string that represents an 8×8 grid, using newline
         characters to separate lines. At each position of the grid there is either a space
@@ -57,9 +56,46 @@ function chessBoard() {
         = 8 and change the program so that it works for any size, outputting a grid
         of the given width and height.
     */
+
+function chessBoard(rows) {
+    let string = "";
+    let count = 0;
+    let bindingSize = rows * rows;
+    let addSpaceOnNextLineAdded = true;
+
+        while(count <= bindingSize) {
+            if (count == bindingSize) {
+                return(string);
+            }
+
+            if (count % rows == 0 && count > 0 && addSpaceOnNextLineAdded == true && rows % 2 == 1) {
+                string += "\n";
+            } else if (count % rows == 0 && count > 0 && addSpaceOnNextLineAdded == true) {
+                string += "\n ";
+                addSpaceOnNextLineAdded = false;
+            } else if (count % rows == 0 && count > 0 && addSpaceOnNextLineAdded == false) {
+                string += "\n";
+                addSpaceOnNextLineAdded = true;
+            }
+
+            if (count == 0) {
+                string += "#";
+            } else if (count % 2 == 0) {
+                string += "#";
+            } else {
+                string += " ";
+            }
+            count ++;
+        }
 }
 
-console.log(loopingATriangle());
-console.log(fizzBuzz());
-// console.log(chessBoard());
+// console.log(loopingATriangle());
+// console.log(fizzBuzz());
+// console.log(chessBoard(Infinity));
+console.log(chessBoard(1));
+console.log(chessBoard(1));
+console.log(chessBoard(0));
+console.log(chessBoard(3));
+console.log(chessBoard(7));
+console.log(chessBoard(8));
 
